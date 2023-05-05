@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Aca se puede poner css default */
+@layer base{
+
+
+
+}
+
+/* Aca solo tailwind */
+@layer components{
+
+
+}
