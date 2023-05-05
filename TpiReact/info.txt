@@ -1,0 +1,15 @@
+
+  ESTRUCTURA DE COMPONENTES
+
+En esta estructura, los componentes se organizan en tres carpetas principales:
+
+  || atoms: contiene componentes de tamaño pequeño y reutilizables, como botones, inputs, iconos, etc.
+
+  || molecules: contiene componentes más grandes que combinan varios componentes atoms, como tarjetas, formularios, etc.
+
+  || organisms: contiene componentes aún más grandes que combinan varios componentes molecules, como encabezados, pies de página, etc.
+
+  || templates:  contiene los componentes que representan una página completa de la aplicación.
+
+
+
