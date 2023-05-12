@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [error, setError] = useState("");
   const [user, setUser] = useState({ email: "", password: "" });
-  const { logIn } = useAuth();
+  const { logIn, loginWithgoogle, resetPassword } = useAuth();
   const navigate = useNavigate();
 
   const handleChange = ({ target: { name, value } }) => {
@@ -20,7 +20,7 @@ const Login = () => {
     try {
       await logIn(user.email, user.password);
       navigate("/home");
-      setError('')
+      setError("");
     } catch (error) {
       //En caso de que haya un error, se va a setear el estado con setError y se muestra en pantalla, o en consola.
       console.log(error.message);
@@ -30,6 +30,28 @@ const Login = () => {
     }
   };
 
+  //Funcion que se ejecuta cuando el usuario seleccion la opcion para iniciar sesion con Google.
+  const handleGoogleSignin = async () => {
+    try {
+      await loginWithgoogle();
+      navigate("/home");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+  //Funcion que se ejecuta cuando el usuario apreta el boton de olvido de password
+  const handleResetPassword = async () => {
+
+    //Si no tiene un correo ingresado, se lo pide ingresar
+    if (!user.email) return setError("Please enter your email");
+    //Si ya ingresó el correo, entonces se ejecuta la funcion para recuperar la password, enviando un mail
+    try {
+      await resetPassword(user.email);
+      setError('We have sent you an email to recover your password')
+    } catch (error) {
+      setError(error.message);
+    }
+  };
   return (
     <div>
       {/* Si hay un error al Iniciar sesion, muestra el mensaje aca, el fomulario siempre se sigue mostrando. */}
@@ -54,7 +76,12 @@ const Login = () => {
         />
 
         <button>Log In</button>
+
+        <a href="#!" onClick={handleResetPassword}>
+          Forgot Password?
+        </a>
       </form>
+      <button onClick={handleGoogleSignin}>Sign in with Google</button>
     </div>
   );
 };

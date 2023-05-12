@@ -4,6 +4,9 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 import { useState } from "react";
@@ -35,6 +38,14 @@ export const AuthProvider = ({ children }) => {
   //funcion para cerrar la sesion del usuario
   const logOut = () => signOut(auth);
 
+  //funcion para registarse con una cuenta de google
+  const loginWithgoogle = () => {
+    const googleProvider = new GoogleAuthProvider();
+    return signInWithPopup(auth, googleProvider);
+  };
+
+  const resetPassword = (email) => sendPasswordResetEmail(auth, email);
+
   //useEffect para escuchar los cambios de estado en la sesion del ususario, ej: cuando se registra, inicia  y cierra sesion.
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -46,7 +57,17 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   return (
-    <authContext.Provider value={{ signUp, logIn, user, logOut, loading }}>
+    <authContext.Provider
+      value={{
+        signUp,
+        logIn,
+        user,
+        logOut,
+        loading,
+        loginWithgoogle,
+        resetPassword,
+      }}
+    >
       {children}
     </authContext.Provider>
   );
