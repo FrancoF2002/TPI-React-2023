@@ -1,0 +1,14 @@
+.modalDataMovie{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    
+    color: bisque;
+    border-radius: 25%;
+}
+
+.tamañoIMG{
+    height: 80%;
+    width: 100%;
+}

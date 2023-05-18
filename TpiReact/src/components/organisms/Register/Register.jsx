@@ -2,11 +2,13 @@ import { useState } from "react";
 import { useAuth } from "../../../context/authContext";
 import { useNavigate } from "react-router-dom";
 
+
 const Register = () => {
   const [error, setError] = useState("");
   const [user, setUser] = useState({ email: "", password: "" });
   const { signUp } = useAuth();
   const navigate = useNavigate();
+  const navigate2 = useNavigate();
 
   const handleChange = ({ target: { name, value } }) => {
     console.log(name, value);
@@ -28,6 +30,8 @@ const Register = () => {
 
       //Firebase tiene varios codigos de errores que se pueden checkear y mostrar un mensaje personalizado en pantalla. Ej: auth/internal-error && auth/email-already-in-use
     }
+
+
   };
 
   return (
@@ -35,14 +39,16 @@ const Register = () => {
       {/* Si hay un error al registarse, muestra el mensaje aca, el fomulario siempre se sigue mostrando. */}
       {error && <p> {error}</p>}
 
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
+      <form className="form-register" onSubmit={handleSubmit}>
 
+        <h4>Register</h4>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
           name="email"
           placeholder="test@gmail.com"
-          onChange={handleChange}
+          onChange={handleChange}                
+          className="controls-input"
         />
 
         <label htmlFor="password">Password</label>
@@ -51,11 +57,13 @@ const Register = () => {
           name="password"
           id="password"
           onChange={handleChange}
+          placeholder = "Ingrese su password"
+          className="controls-input"
         />
-
-        <button>Register</button>
+        <button className="buttons">Register</button>
       </form>
     </div>
   );
 };
+
 export default Register;

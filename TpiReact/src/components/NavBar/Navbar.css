@@ -1,0 +1,42 @@
+.navbar {
+  display: flex;
+  background-color: rgb(28, 28, 28);
+  width: 100%;
+  height: 100%;
+}
+
+.nombreDataMovie {
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  color: bisque;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
+}
+
+.buttonNav {
+    display: flex;
+    margin: 3px;
+    padding: auto;
+  }
+  
+
+.buttonNav button {
+  display: flex;
+  /* margin: 5px; */
+  width: 100%;
+  height: 100%;
+  padding: auto;
+}
+
+.divNavPresentacion {
+  display: flex;
+  align-items: center;
+}
+
+.divNavPresentacion img {
+  width: 25px;
+  height: 25px;
+  margin: 5px;
+}
