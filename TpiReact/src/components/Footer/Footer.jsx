@@ -5,7 +5,7 @@ export const Footer = () => {
   return (
     <div>
         <div className='footer'>
-            FOOTER
+        "Este producto utiliza la API de TMDB, pero TMDB no lo respalda ni lo certifica"
         </div>
     </div>
   )

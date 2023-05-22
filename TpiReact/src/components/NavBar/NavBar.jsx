@@ -9,9 +9,6 @@ const NavBar = () => {
   const navigate = useNavigate();
   const urlImgMovie = "https://www.freepnglogos.com/uploads/film-reel-png/film-reel-the-movies-owens-valley-12.png";
 
-
-    
-
   const handlerChangeLogIn = async () => {
     try {
       navigate("/login");
@@ -32,7 +29,7 @@ const NavBar = () => {
     <div>
       <div className="navbar">
         <div className="divNavPresentacion">
-          <img src={urlImgMovie} alt="" />
+          <img src={"https://www.freepnglogos.com/uploads/film-reel-png/film-reel-the-movies-owens-valley-12.png"} alt="" />
           <h3 className="nombreDataMovie">Bienvenidos a Data Movie</h3>
         </div>
         <div className="buttonNav">
