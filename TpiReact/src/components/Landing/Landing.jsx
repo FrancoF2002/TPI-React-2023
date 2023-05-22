@@ -1,7 +1,7 @@
 import Carousel from "react-bootstrap/Carousel";
-import NavBar from "../../NavBar/NavBar";
+import NavBar from "../NavBar/NavBar";
 import "./Landing.css";
-import { Footer } from "../../Footer/Footer";
+import { Footer } from "../Footer/Footer";
 
 
 const Landing = () => {

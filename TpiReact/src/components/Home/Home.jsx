@@ -1,5 +1,5 @@
 import { Nav, NavItem, NavLink } from "reactstrap";
-import { useAuth } from "../../../context/authContext";
+import { useAuth } from "../../context/authContext";
 import "../../NavBar/NavbarHome.css";
 import "./Home.css";
 
