@@ -41,13 +41,12 @@ const Login = () => {
   };
   //Funcion que se ejecuta cuando el usuario apreta el boton de olvido de password
   const handleResetPassword = async () => {
-
     //Si no tiene un correo ingresado, se lo pide ingresar
     if (!user.email) return setError("Please enter your email");
     //Si ya ingresó el correo, entonces se ejecuta la funcion para recuperar la password, enviando un mail
     try {
       await resetPassword(user.email);
-      setError('We have sent you an email to recover your password')
+      setError("We have sent you an email to recover your password");
     } catch (error) {
       setError(error.message);
     }
