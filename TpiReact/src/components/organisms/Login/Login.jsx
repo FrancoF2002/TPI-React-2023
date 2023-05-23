@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { useAuth } from "../../../context/authContext";
 import { useNavigate } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
+
+import "./Login.css";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -52,35 +55,42 @@ const Login = () => {
     }
   };
   return (
-    <div>
+    <div className="generalDiv">
       {/* Si hay un error al Iniciar sesion, muestra el mensaje aca, el fomulario siempre se sigue mostrando. */}
-      {error && <p> {error}</p>}
-
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Email</label>
-
-        <input
-          type="email"
-          name="email"
-          placeholder="test@gmail.com"
-          onChange={handleChange}
-        />
-
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          id="password"
-          onChange={handleChange}
-        />
-
-        <button>Log In</button>
-
-        <a href="#!" onClick={handleResetPassword}>
-          Forgot Password?
-        </a>
-      </form>
-      <button onClick={handleGoogleSignin}>Sign in with Google</button>
+       {/* {error && <p> {error}</p>} */}
+   
+        
+          <form className="form-register" onSubmit={handleSubmit}>   
+          <h4>Login</h4>             
+            <label htmlFor="email">Email</label> 
+              <input
+                type="email"
+                name="email"
+                placeholder="test@gmail.com"
+                onChange={handleChange}
+                className="controls-input"
+              />
+              
+    
+            <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                name="password"
+                id="password"
+                onChange={handleChange}
+                placeholder = "Ingrese su password"
+                className="controls-input"
+              />
+               {error && <p> {error}</p>}
+              <button className="buttonGoogle" onClick={handleGoogleSignin}>Sign in with Google</button>
+              <button className="buttons">Log in</button>
+              <a href="#!" onClick={handleResetPassword}> <u>Forgot Password? </u> </a>
+              {error && <p> Completar todos los campos</p>}
+          </form> 
+    
+      
+      
+        
     </div>
   );
 };
