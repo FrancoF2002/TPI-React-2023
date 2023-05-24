@@ -1,9 +1,8 @@
 import { Nav, NavItem, NavLink } from "reactstrap";
 import { useAuth } from "../../context/authContext";
-import "../../NavBar/NavbarHome.css";
+import '../NavBar/NavBarHome.css'
 import "./Home.css";
 
-// import Footer from "../../Footer/Footer"
 
 
 const Home = () => {
