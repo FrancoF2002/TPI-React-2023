@@ -8,16 +8,9 @@ import Landing from "./components/Landing/Landing";
 import ProtectedRoute from "./routes/protectedRoute";
 
 import Login from "./components/organisms/Login/Login";
-import useApi from "./hooks/useApi";
+
 
 function App() {
-  const { getTopRatedMovies } = useApi();
-
-  useEffect(() => {
-
-    //Se ejecuta cada vez que se carga el componente. Trae peliculas mejor valoradas. Para traer otros datos es todo lo mismo, solo cambia el endpoint.
-    getTopRatedMovies();
-  }, []);
 
   return (
     <AuthProvider>

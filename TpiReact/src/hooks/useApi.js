@@ -1,30 +1,45 @@
-
+import { useEffect, useState } from "react";
 
  const useApi = () => {
 
-const apiKey = import.meta.env.VITE_API_MOVIES_TOKEN;
+  const [movies, setMovies] = useState([]);
 
-  const getTopRatedMovies = () => {
-
-    for (let i = 0; i < 10 ; i++) {
-      fetch(`https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}`)
-      .then((res) => res.json())
-      .then((data) => console.log(data.results[i].title))
-      .catch((err) => console.log(err));
-    }
-    
+  const url = "https://moviesdatabase.p.rapidapi.com/titles/x/upcoming";
+  const options = {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "ab649abab4msh81a50b49a87061ep15a325jsna1d2e64d0cfa",
+      "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
+    },
   };
 
+  const fetchMovies = async () => {
+    TODO: "Anda bien";
+    // fetch(url, options)
+    // .then((res) => res.json())
+    // .then((res) => { movies = res
+    //                 console.log(res)})
 
-  
+    TODO: "2da opcion y anda";
+    const res = await fetch(url, options);
+    const datos = await res.json();
+    setMovies(datos.results);
+    console.log(datos.results);
+    return datos;
+  };
 
-  return { getTopRatedMovies };
+  useEffect(() => {
+    fetchMovies();
+  }, []);
 
+  return fetchMovies();
 
-  //https://api.themoviedb.org/3/movie/upcoming
-};
+}
+
 export default useApi;
 
+
+ //https://api.themoviedb.org/3/movie/upcoming
 
 TODO: "Video de youtube"
 
@@ -39,4 +54,4 @@ TODO: "Video de youtube"
 
 // export {
 //   getTopRatedMovies
-// }
+// 
