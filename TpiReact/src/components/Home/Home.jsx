@@ -7,31 +7,7 @@ import CardMovie from "./CardsMovie/CardMovie";
 
 const Home = () => {
   const { user, logOut, loading } = useAuth();
-  const [movies, setMovies] = useState([]);
-
-  const url = "https://moviesdatabase.p.rapidapi.com/titles/x/upcoming";
-  const options = {
-    method: "GET",
-    headers: {
-      "X-RapidAPI-Key": "ab649abab4msh81a50b49a87061ep15a325jsna1d2e64d0cfa",
-      "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
-    },
-  };
-
-  const fetchMovies = async () => {
-    TODO: "Anda bien";
-    // fetch(url, options)
-    // .then((res) => res.json())
-    // .then((res) => { movies = res
-    //                 console.log(res)})
-
-    TODO: "2da opcion y anda";
-    const res = await fetch(url, options);
-    const datos = await res.json();
-    setMovies(datos.results);
-    console.log(datos.results);
-    return datos;
-  };
+  
 
   const handleLogOut = async () => {
     await logOut();
@@ -39,10 +15,7 @@ const Home = () => {
 
   if (loading) return <h1> Loading...</h1>;
 
-  useEffect(() => {
-    fetchMovies();
-    //console.log(movies)
-  }, []);
+ 
 
   return (
     <div className="container">
