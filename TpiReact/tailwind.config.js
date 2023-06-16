@@ -2,7 +2,17 @@
 export default {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        darkBlueBG: "#10141F" ,
+      },
+      screens: {
+        'xxs': '460px',
+        // => @media (min-width: 640px) { ... }
+  
+        
+      },
+    },
   },
   plugins: [],
 }

@@ -1,6 +1,4 @@
 import React from "react";
-import { Button } from "reactstrap";
-import "./NavBar.css";
 import {useNavigate} from "react-router-dom";
 
 
@@ -27,18 +25,18 @@ const NavBar = () => {
 
   return (
     <div>
-      <div className="navbar">
-        <div className="divNavPresentacion">
+      <div className="">
+        <div className="">
           <img src={"https://www.freepnglogos.com/uploads/film-reel-png/film-reel-the-movies-owens-valley-12.png"} alt="" />
-          <h3 className="nombreDataMovie">Bienvenidos a Data Movie</h3>
+          <h3 className="">Bienvenidos a Data Movie</h3>
         </div>
-        <div className="buttonNav">
-          <Button onClick={handlerChangeLogIn} className="buttonNav" color="success">
+        <div className="">
+          <button onClick={handlerChangeLogIn} className="" color="success">
             Log In
-          </Button>
-          <Button onClick={handlerChangeRegister} className="buttonNav" color="success">
+          </button>
+          <button onClick={handlerChangeRegister} className="" color="success">
             Register
-          </Button>
+          </button>
         </div>
       </div>
     </div>
