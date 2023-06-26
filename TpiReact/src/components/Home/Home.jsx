@@ -1,7 +1,5 @@
-import { Nav, NavItem, NavLink } from "reactstrap";
-import { useAuth } from "../../context/authContext";
 
-import { useState, useEffect } from "react";
+import { useAuth } from "../../context/authContext";
 import CardMovie from "./Movies/Movies";
 
 const Home = () => {
