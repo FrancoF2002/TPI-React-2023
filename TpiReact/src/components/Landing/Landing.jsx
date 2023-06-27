@@ -1,33 +1,26 @@
 
-
-import Carousel from "react-bootstrap/Carousel";
-import NavBar from "../NavBar/NavBar";
-import "./Landing.css";
-import { Footer } from "../Footer/Footer";
-
+import Login from "../shared/Login/Login";
+import { LogoIcon } from "../../assets/icons/Icons";
 
 const Landing = () => {
-
   return (
-    <div>
-      <NavBar />
-      <Carousel>
-        <Carousel.Item>
-          <img
-            className="d-block w-100 h-100"
-            src="https://d500.epimg.net/cincodias/imagenes/2020/12/31/lifestyle/1609408585_467254_1609408795_noticia_normal.jpg"
-            alt="First slide"
-          />
-        </Carousel.Item>
-        <Carousel.Item>
-          <img
-            className="d-block w-100"
-            src="https://d500.epimg.net/cincodias/imagenes/2020/12/31/lifestyle/1609408585_467254_1609408795_noticia_normal.jpg"
-            alt="First slide"
-          />
-        </Carousel.Item>
-      </Carousel>
-      <Footer/>
+    <div className=" sides-padding flex flex-col justify-center items-center h-screen ">
+      {/* <NavBar />
+      <Footer /> */}
+    
+      <LogoIcon/>
+
+
+
+
+
+
+
+
+
+      <h2 className="form-title mb-5  text-customRed tracking-wider text-xl xxs:text-2xl ">  ¡Bienvenido otra vez!</h2>
+      <h3 className="form-title">Ingresa con tu cuenta para continuar</h3>
+      <Login />
     </div>
   );
 };

@@ -1,9 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../../context/authContext";
-import { useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-
-import "./Login.css";
+import { useNavigate, Link } from "react-router-dom";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -55,43 +52,72 @@ const Login = () => {
     }
   };
   return (
-    <div className="generalDiv">
+    <>
       {/* Si hay un error al Iniciar sesion, muestra el mensaje aca, el fomulario siempre se sigue mostrando. */}
-       {/* {error && <p> {error}</p>} */}
-   
-        
-          <form className="form-register" onSubmit={handleSubmit}>   
-          <h4>Login</h4>             
-            <label htmlFor="email">Email</label> 
-              <input
-                type="email"
-                name="email"
-                placeholder="test@gmail.com"
-                onChange={handleChange}
-                className="controls-input"
-              />
-              
-    
-            <label htmlFor="password">Password</label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                onChange={handleChange}
-                placeholder = "Ingrese su password"
-                className="controls-input"
-              />
-               {error && <p> {error}</p>}
-              <button className="buttonGoogle" onClick={handleGoogleSignin}>Sign in with Google</button>
-              <button className="buttons">Log in</button>
-              <a href="#!" onClick={handleResetPassword}> <u>Forgot Password? </u> </a>
-              {error && <p> Completar todos los campos</p>}
-          </form> 
-    
-      
-      
-        
-    </div>
+      {/* {error && <p> {error}</p>} */}
+
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="input-container">
+          <label className="label" htmlFor="email">
+            Correo electrónico
+          </label>
+          <input
+            type="email"
+            name="email"
+            onChange={handleChange}
+            className="input"
+          />
+        </div>
+
+        <div className="input-container ">
+          <div className="flex justify-between w-full">
+            <label className="label" htmlFor="password">
+              Contraseña
+            </label>
+            <a
+              href="#!"
+              className="forgot-password"
+              onClick={handleResetPassword}
+            >
+              Olvidaste contraseña?
+            </a>
+          </div>
+
+          <input
+            type="password"
+            name="password"
+            id="password"
+            onChange={handleChange}
+            className="input"
+          />
+        </div>
+        {error && (
+          <p className="text-yellow-300 text-sm font-light text-start w-full">
+            {" "}
+            Asegurese de completar correctamente todos los campos
+          </p>
+        )}
+        {/*
+
+          Error de firebase
+         {error && <p> {error}</p>} 
+         */}
+
+        <button className="btn-loggin">Iniciar sesión</button>
+        <button className="btn-google" onClick={handleGoogleSignin}>
+          Continuar con Google
+        </button>
+      </form>
+      <div className="mt-10 text-white flex flex-col justify-center items-center">
+        <span>¿No tienes una cuenta?</span>
+        <Link
+          to={"/register"}
+          className="underline underline-offset-4 hover:opacity-90"
+        >
+          Registrate
+        </Link>
+      </div>
+    </>
   );
 };
 export default Login;

@@ -3,14 +3,81 @@
 @tailwind utilities;
 
 /* Aca se puede poner css default */
-@layer base{
-
-
-
+@layer base {
+  body {
+    font-family: "Nunito", sans-serif;
+    
+  }
 }
 
 /* Aca solo tailwind */
-@layer components{
+@layer components {
+  /* SHARED */
 
 
+  body{
+    @apply bg-darkBlueBG
+  }
+  .sides-padding {
+    @apply px-3;
+  }
+  .inputs-rounded {
+    @apply rounded-[5px] sm:rounded-[7px];
+  }
+  .btn {
+    @apply w-full inputs-rounded h-9 font-semibold text-sm cursor-pointer tracking-wider xxs:text-base xxs:h-10 sm:h-11;
+  }
+
+  /* ICONS */
+  .icon {
+    @apply w-3 h-3;
+  }
+
+  /* MOVIES CARD */
+  .moviesCardsContainer {
+    @apply grid grid-cols-2 gap-2 px-2  bg-darkBlueBG py-5 xxs:gap-3 xxs:px-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7;
+  }
+
+  .movieCard {
+    @apply relative shadow-md;
+  }
+  .movieTitle {
+    @apply font-[500] text-[12px] text-white xxs:text-sm sm:text-[15px] md:text-base;
+  }
+
+  .movie__BookmarkContainer {
+    @apply absolute right-1  top-1 xxs:right-2 xxs:top-2 bg-black/40 rounded-full w-7 h-7 grid place-content-center cursor-pointer xxs:h-8 xxs:w-8;
+  }
+
+  .movie__subInfo {
+    @apply text-[11px] tracking-wide font-thin flex  items-center justify-center  h-5 leading-5  gap-[5px] text-slate-300 xxs:gap-[8px] xxs:text-xs;
+  }
+
+  /* LOGIN */
+
+  .form {
+    @apply w-full flex flex-col items-center justify-center sm:max-w-sm  md:max-w-md;
+  }
+  .form-title {
+    @apply w-full text-white  text-lg text-center font-bold mb-10 xxs:text-xl ;
+  }
+  .input {
+    @apply w-full border  sides-padding h-9 shadow-sm border-zinc-300 inputs-rounded xxs:h-10 sm:h-11 focus:outline-none  focus:bg-red-100 text-sm sm:text-base;
+  }
+
+  .label {
+    @apply w-full text-[12px] text-white font-medium  xxs:text-sm sm:font-medium sm:text-[15px];
+  }
+  .input-container {
+    @apply w-full space-y-1 xxs:space-y-2 md:space-y-3 my-3 xxs:my-4 ;
+  }
+  .forgot-password {
+    @apply label text-end  text-customRed;
+  }
+  .btn-loggin {
+    @apply btn bg-customRed border-customRed  my-2 xxs:my-4  text-darkBlueBG hover:opacity-90  ;
+  }
+  .btn-google {
+    @apply btn border  border-customRed  text-customRed hover:opacity-90  ;
+  }
 }

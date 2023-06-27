@@ -3,14 +3,15 @@
 // const options = {
 //   method: "GET",
 //   headers: {
-//     "X-RapidAPI-Key": "b0ea16c692d565ed59f89740b9422457",
+//     "X-RapidAPI-Key": import.meta.env.VITE_MOVIES_API_KEY,
 //     "X-RapidAPI-Host": "moviesdatabase.p.rapidapi.com",
 //   },
 // };
 // export const getUpcoming = async () => {
-//    return fetch(GET_UPCOMING_ENDPOINT, options)
-//    .then(res => res.json())
-//    .then(data => { const {result}  = data})
-  
+//   const res = fetch(GET_UPCOMING_ENDPOINT, options);
+//   const data = await res.json();
+//   const { results } = data;
+
+//   return results;
   
 // };
