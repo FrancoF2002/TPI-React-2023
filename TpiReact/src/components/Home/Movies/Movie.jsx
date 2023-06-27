@@ -3,7 +3,7 @@ import MovieSubInfo from "./MovieSubInfo";
 
 const Movie = ({ movie }) => {
   return (
-    <div className="movieCard  " >
+    <div className="movieCard" >
 
       {/* onHover puede ir la descripcion con un backdrop negro */}
       <div className="movie__BookmarkContainer ">
@@ -19,7 +19,7 @@ const Movie = ({ movie }) => {
 
         <MovieSubInfo movie={movie} />
 
-        <p className="movieTitle   text-center">{movie.title}</p>
+        <p className="movieTitle text-center">{movie.title}</p>
         {/* <p>{movie.overview}</p> */}
       </div>
     </div>
