@@ -8,6 +8,7 @@ import Landing from "./components/Landing/Landing";
 import ProtectedRoute from "./routes/protectedRoute";
 
 import Login from "./components/shared/Login/Login";
+import Series from "./components/Home/Series/Series";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route path="/series" element={<Series />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>
