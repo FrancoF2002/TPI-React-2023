@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import Serie from "./Serie";
+import Loader from "../../shared/Loader/Loader";
 
 const Series = () => {
   
@@ -453,6 +454,10 @@ const Series = () => {
     //fetchMovies();
   }, []);
 
+
+  if(!series){
+    return (<Loader/>)
+  }
   return (
     <div className="moviesCardsContainer">
       {series.map((serie, index) => {

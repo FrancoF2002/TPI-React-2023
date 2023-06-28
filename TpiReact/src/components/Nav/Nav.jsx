@@ -1,6 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { useAuth } from "../../context/authContext";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 import {
   LogoIcon,
   NavBookmarkIcon,
@@ -17,11 +17,10 @@ const Nav = () => {
     navigate("/");
   };
 
-
   const location = useLocation();
 
   // Mostrar la barra de navegación solo en ciertas rutas
-  if (location.pathname === '/') {
+  if (location.pathname === "/") {
     return null;
   }
 
@@ -33,26 +32,23 @@ const Nav = () => {
         
         <NavHomeIcon />
       </div> */}
-      <div className="nav__icon-container ">
+      <NavLink to={'/home'} className="nav__icon-container">
         <LogoIcon />
-      </div>
+      </NavLink>
 
-      <div className="flex gap-[18px] items-center justify-center">
-        <div className="nav__icon-container" onClick={() => navigate("/movies")}>
+      <div className="flex gap-[18px] items-center justify-center xxs:gap-8 sm:gap-10 md:gap-14 lg:gap-20">
+        <NavLink to={"/movies"} className="nav__icon-container">
           <NavMoviesIcon />
-        </div>
-        <div
-          className="nav__icon-container"
-          onClick={() => navigate("/series")}
-        >
+        </NavLink>
+        <NavLink to={"/series"} className="nav__icon-container">
           <NavSeriesIcon />
-        </div>
-        <div className="nav__icon-container" onClick={() => navigate("/saved")}>
+        </NavLink>
+        <NavLink to={"/saved"} className="nav__icon-container">
           <NavBookmarkIcon />
-        </div>
+        </NavLink>
       </div>
 
-      <div className="w-6 h-6 rounded-full bg-customRed  border-[1px]"></div>
+      <div className="w-6 h-6 rounded-full bg-customRed  border-[1px] xxs:w-7 xxs:h-7 sm:h-8 sm:w-8"></div>
     </div>
   );
 };

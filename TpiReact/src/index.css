@@ -6,7 +6,6 @@
 @layer base {
   body {
     font-family: "Nunito", sans-serif;
-    
   }
 }
 
@@ -14,9 +13,8 @@
 @layer components {
   /* SHARED */
 
-
-  body{
-    @apply bg-darkBlueBG
+  body {
+    @apply bg-navBarBG;
   }
   .sides-padding {
     @apply px-3;
@@ -32,36 +30,34 @@
   .icon {
     @apply w-3 h-3;
   }
-  .logoIcon{
-    @apply  w-[32px]
+  .logoIcon {
+    @apply w-[32px] xxs:w-[36px] sm:w-10;
   }
-  .movieIcon{
-    @apply w-4  hover:fill-white focus:fill-white 
+  .movieIcon {
+    @apply w-4  hover:fill-white focus:fill-white xxs:w-5 sm:w-6;
   }
-  .serieIcon{
-    @apply w-[18px] -translate-y-[1px] hover:fill-white  focus:fill-white 
+  .serieIcon {
+    @apply w-[18px]  hover:fill-white -translate-y-[1px]  focus:fill-white xxs:w-[22px] sm:w-[26px];
   }
-  .bookmarkIcon{
-    @apply w-[16px] hover:fill-white focus:fill-white 
+  .bookmarkIcon {
+    @apply w-[16px] hover:fill-white focus:fill-white xxs:w-[20px] sm:w-[24px];
   }
-  .nav__icon-container{
-    @apply grid place-content-center 
+  .nav__icon-container {
+    @apply grid place-content-center cursor-pointer;
   }
-
 
   /* NAV BAR */
 
-
-    .nav{
-      @apply w-full sides-padding bg-navBarBG h-11 text-white flex justify-between items-center 
-    }
+  .nav {
+    @apply w-full sides-padding  h-11 text-white flex justify-between items-center xxs:h-12 md:h-14;
+  }
   /* MOVIES CARD */
   .moviesCardsContainer {
-    @apply grid grid-cols-2 gap-2 px-2  bg-darkBlueBG py-5 xxs:gap-3 xxs:px-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7;
+    @apply grid grid-cols-2 gap-2 px-2   py-5 xxs:gap-3 xxs:px-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 xl:grid-cols-5 xl:gap-5 2xl:grid-cols-6 2xl:gap-6   drop-shadow-md shadow-white;
   }
 
   .movieCard {
-    @apply relative shadow-md;
+    @apply relative overflow-hidden;
   }
   .movieTitle {
     @apply font-[400] text-[12px] text-white xxs:text-sm sm:text-[15px] md:text-base;
@@ -78,10 +74,10 @@
   /* LOGIN */
 
   .form {
-    @apply  w-full flex flex-col items-center justify-center sm:max-w-sm  md:max-w-md;
+    @apply w-full flex flex-col items-center justify-center sm:max-w-sm  md:max-w-md;
   }
   .form-title {
-    @apply w-full text-white  text-lg text-center font-bold mb-10 xxs:text-xl ;
+    @apply w-full text-white  text-lg text-center font-bold mb-10 xxs:text-xl;
   }
   .input {
     @apply w-full border  sides-padding h-9 shadow-sm border-zinc-300 inputs-rounded xxs:h-10 sm:h-11 focus:outline-none  focus:bg-red-100 text-sm sm:text-base;
@@ -91,15 +87,15 @@
     @apply w-full text-[12px] text-white font-medium  xxs:text-sm sm:font-medium sm:text-[15px];
   }
   .input-container {
-    @apply w-full space-y-1 xxs:space-y-2 md:space-y-3 my-3 xxs:my-4 ;
+    @apply w-full space-y-1 xxs:space-y-2 md:space-y-3 my-3 xxs:my-4;
   }
   .forgot-password {
     @apply label text-end  text-customRed;
   }
   .btn-loggin {
-    @apply btn bg-customRed border-customRed  my-2 xxs:my-4  text-darkBlueBG hover:opacity-90  ;
+    @apply btn bg-customRed border-customRed  my-2 xxs:my-4  text-darkBlueBG hover:opacity-90;
   }
   .btn-google {
-    @apply btn border  border-customRed  text-customRed hover:opacity-90  ;
+    @apply btn border  border-customRed  text-customRed hover:opacity-90;
   }
 }

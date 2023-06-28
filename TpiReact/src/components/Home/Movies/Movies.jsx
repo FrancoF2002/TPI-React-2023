@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import Movie from "./Movie";
-
+import Loader from "../../shared/Loader/Loader";
 const Movies = () => {
   const [movies, setMovies] = useState([
     {
@@ -410,6 +410,11 @@ const Movies = () => {
     vote_average: 7.372,
     vote_count: 1465,
   };
+
+
+  if(!movies){
+    return (<Loader/>)
+  }
 
   return (
     <div className="moviesCardsContainer">

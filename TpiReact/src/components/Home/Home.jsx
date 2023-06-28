@@ -11,8 +11,6 @@ const Home = () => {
 
   return (
     <div className="">
-    {/* <Nav/> */}
-
       <CardMovie />
     </div>
   );

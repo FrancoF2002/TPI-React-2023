@@ -15,16 +15,16 @@ const Movie = ({ movie }) => {
         <BookmarkIcon />
       </div>
 
-      <div className="flex flex-col justify-center items-center  ">
+      <div className="flex flex-col justify-center items-center h-full shadow-darkBlueBG shadow-xl ">
         <img
-          className="rounded-lg w-full h-full  mb-[4px]  "
+          className="rounded-lg w-full h-full    "
           src={"http://image.tmdb.org/t/p/w500/" + movie.poster_path}
           alt="movie-image"
         />
 
-        <MovieSubInfo movie={movie} />
+        {/* <MovieSubInfo movie={movie} /> */}
 
-        <p className="movieTitle text-center">{movie.title}</p>
+        {/* <p className="movieTitle text-center">{movie.title}</p> */}
         {/* <p>{movie.overview}</p> */}
       </div>
     </div>
