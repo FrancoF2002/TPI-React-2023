@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Loader from "../../shared/Loader/Loader";
 
 const MovieDescription = () => {
   const params = useParams();
@@ -151,27 +152,32 @@ const MovieDescription = () => {
   }, []);
 
   if (!videos) {
-    return <p className="text-white"></p>;
+    return (
+      <p className="text-white">
+        {" "}
+        <Loader />{" "}
+      </p>
+    );
   }
   return (
     <div className="text-white">
       {videos.reverse().map((trailer) => {
         if (trailer.type === "Trailer") {
           return (
-            <div className="flex flex-col items-center justify-center" key={trailer.id}>
+            <div
+              className="flex flex-col items-center justify-center"
+              key={trailer.id}
+            >
               <div className="">Video {trailer.name}</div>
 
-              <iframe className="aspect-video w-full"
+              <iframe
+                className="aspect-video w-full"
                 src={`https://www.youtube.com/embed/${trailer.key}`}
                 allowFullScreen
               />
             </div>
           );
         }
-
-
-
-
       })}
     </div>
   );
