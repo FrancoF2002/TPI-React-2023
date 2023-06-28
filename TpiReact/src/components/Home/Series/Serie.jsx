@@ -2,13 +2,25 @@ import React from 'react'
 import { BookmarkIcon } from '../../../assets/icons/Icons';
 import MovieSubInfo from "./../Movies/MovieSubInfo";
 import SerieSubInfo from './SerieSubInfo';
+import { useNavigate } from 'react-router-dom';
 
 const Serie = ({serie}) => {
+
+  const navigate = useNavigate();
+
+  const SerieDetails = (id) => {
+    navigate(`/serie/${id}`);
+  };
+
+  const saveFilm = () => {
+
+  }
+
     return (
-        <div className="movieCard" >
+        <div className="movieCard" onClick={() => SerieDetails(serie.id)}>
     
           {/* onHover puede ir la descripcion con un backdrop negro */}
-          <div className="movie__BookmarkContainer ">
+          <div className="movie__BookmarkContainer " onClick={saveFilm()}>
             <BookmarkIcon />
           </div>
     
@@ -18,8 +30,6 @@ const Serie = ({serie}) => {
               src={"http://image.tmdb.org/t/p/w500/" + serie.poster_path}
               alt="movie-image"
             />
-    
-            <SerieSubInfo serie={serie}/>
     
             <p className="movieTitle text-center">{serie.name}</p>
 

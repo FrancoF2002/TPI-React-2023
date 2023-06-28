@@ -44,6 +44,7 @@ export const AuthProvider = ({ children }) => {
     return signInWithPopup(auth, googleProvider);
   };
 
+
   const resetPassword = (email) => sendPasswordResetEmail(auth, email);
 
   //useEffect para escuchar los cambios de estado en la sesion del ususario, ej: cuando se registra, inicia  y cierra sesion.
@@ -55,6 +56,11 @@ export const AuthProvider = ({ children }) => {
 
     return () => unsubscribe();
   }, []);
+
+
+  const saveFilm = (id) => {
+    
+  }
 
   return (
     <authContext.Provider

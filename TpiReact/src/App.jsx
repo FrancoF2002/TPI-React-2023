@@ -11,6 +11,7 @@ import MovieDescription from "./components/Home/Movies/MovieDescription";
 import Nav from "./components/Nav/Nav";
 
 import Movies from "./components/Home/Movies/Movies";
+import SerieDescription from "./components/Home/Series/SerieDescription";
 
 function App() {
   return (
@@ -36,6 +37,14 @@ function App() {
             }
           />
           <Route
+            path="serie/:id"
+            element={
+              <ProtectedRoute>
+                <SerieDescription />
+              </ProtectedRoute>
+            }
+          />
+          <Route
             path="/movies"
             element={
               <ProtectedRoute>
@@ -52,6 +61,12 @@ function App() {
               </ProtectedRoute>
             }
           />
+
+          <Route path="guardados" 
+          element={
+            <ProtectedRoute>
+
+            </ProtectedRoute>} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
