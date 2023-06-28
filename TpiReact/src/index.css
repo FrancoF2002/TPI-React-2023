@@ -32,7 +32,29 @@
   .icon {
     @apply w-3 h-3;
   }
+  .logoIcon{
+    @apply  w-[32px]
+  }
+  .movieIcon{
+    @apply w-4  hover:fill-white focus:fill-white 
+  }
+  .serieIcon{
+    @apply w-[18px] -translate-y-[1px] hover:fill-white  focus:fill-white 
+  }
+  .bookmarkIcon{
+    @apply w-[16px] hover:fill-white focus:fill-white 
+  }
+  .nav__icon-container{
+    @apply grid place-content-center 
+  }
 
+
+  /* NAV BAR */
+
+
+    .nav{
+      @apply w-full sides-padding bg-navBarBG h-11 text-white flex justify-between items-center 
+    }
   /* MOVIES CARD */
   .moviesCardsContainer {
     @apply grid grid-cols-2 gap-2 px-2  bg-darkBlueBG py-5 xxs:gap-3 xxs:px-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 2xl:grid-cols-7;
@@ -42,7 +64,7 @@
     @apply relative shadow-md;
   }
   .movieTitle {
-    @apply font-[500] text-[12px] text-white xxs:text-sm sm:text-[15px] md:text-base;
+    @apply font-[400] text-[12px] text-white xxs:text-sm sm:text-[15px] md:text-base;
   }
 
   .movie__BookmarkContainer {

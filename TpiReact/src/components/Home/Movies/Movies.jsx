@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import Movie from "./Movie";
 
-const CardMovie = () => {
+const Movies = () => {
   const [movies, setMovies] = useState([
     {
       adult: false,
@@ -420,4 +420,4 @@ const CardMovie = () => {
   );
 };
 
-export default CardMovie;
+export default Movies;

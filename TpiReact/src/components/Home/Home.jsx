@@ -1,21 +1,17 @@
 
-import { useAuth } from "../../context/authContext";
 
-
+import Nav from "../Nav/Nav";
 import CardMovie from "./Movies/Movies";
 
+
 const Home = () => {
-  const { user, logOut, loading } = useAuth();
+  
 
-  const handleLogOut = async () => {
-    await logOut();
-  };
-
-  if (loading) return <h1> Loading...</h1>;
+  //if (loading) return <h1> Loading...</h1>;
 
   return (
     <div className="">
-      <button onClick={handleLogOut}>Log out</button>
+    {/* <Nav/> */}
 
       <CardMovie />
     </div>

@@ -6,6 +6,7 @@ export default {
       colors: {
         darkBlueBG: "#10141F",
         customRed: "#FC4747",
+        navBarBG: "#161D2F",
       },
       screens: {
         xxs: "460px",
