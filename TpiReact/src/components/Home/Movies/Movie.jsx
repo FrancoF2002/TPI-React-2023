@@ -1,10 +1,15 @@
 import { BookmarkIcon } from "../../../assets/icons/Icons";
 import MovieSubInfo from "./MovieSubInfo";
-
+import { useNavigate} from "react-router-dom";
 const Movie = ({ movie }) => {
-  return (
-    <div className="movieCard" >
+  const navigate = useNavigate();
 
+  const showMovieDetail = (id) => {
+    navigate(`/movie/${id}`);
+  };
+
+  return (
+    <div className="movieCard" onClick={() => showMovieDetail(movie.id)}>
       {/* onHover puede ir la descripcion con un backdrop negro */}
       <div className="movie__BookmarkContainer ">
         <BookmarkIcon />

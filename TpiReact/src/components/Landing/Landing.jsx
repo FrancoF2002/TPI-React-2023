@@ -8,18 +8,8 @@ const Landing = () => {
       {/* <NavBar />
       <Footer /> */}
     
-      <LogoIcon/>
+      {/* <LogoIcon/> */}
 
-
-
-
-
-
-
-
-
-      <h2 className="form-title mb-5  text-customRed tracking-wider text-xl xxs:text-2xl ">  ¡Bienvenido otra vez!</h2>
-      <h3 className="form-title">Ingresa con tu cuenta para continuar</h3>
       <Login />
     </div>
   );

@@ -9,6 +9,7 @@ import ProtectedRoute from "./routes/protectedRoute";
 
 import Login from "./components/shared/Login/Login";
 import Series from "./components/Home/Series/Series";
+import MovieDescription from "./components/Home/Movies/MovieDescription";
 
 function App() {
   return (
@@ -21,6 +22,15 @@ function App() {
             element={
               <ProtectedRoute>
                 <Home />
+              </ProtectedRoute>
+            }
+          />
+
+          <Route
+            path="movie/:id"
+            element={
+              <ProtectedRoute>
+                <MovieDescription />
               </ProtectedRoute>
             }
           />

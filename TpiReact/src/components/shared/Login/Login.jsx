@@ -52,10 +52,9 @@ const Login = () => {
     }
   };
   return (
-    <>
-      {/* Si hay un error al Iniciar sesion, muestra el mensaje aca, el fomulario siempre se sigue mostrando. */}
-      {/* {error && <p> {error}</p>} */}
-
+    <div className=" sides-padding flex flex-col justify-center items-center h-screen ">
+      <h2 className="form-title mb-5  text-customRed tracking-wider text-xl xxs:text-2xl ">  ¡Bienvenido otra vez!</h2>
+      <h3 className="form-title">Ingresa con tu cuenta para continuar</h3>
       <form className="form" onSubmit={handleSubmit}>
         <div className="input-container">
           <label className="label" htmlFor="email">
@@ -108,6 +107,7 @@ const Login = () => {
           Continuar con Google
         </button>
       </form>
+
       <div className="mt-10 text-white flex flex-col justify-center items-center">
         <span>¿No tienes una cuenta?</span>
         <Link
@@ -117,7 +117,7 @@ const Login = () => {
           Registrate
         </Link>
       </div>
-    </>
+    </div>
   );
 };
 export default Login;

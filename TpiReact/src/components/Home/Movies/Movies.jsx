@@ -414,7 +414,7 @@ const CardMovie = () => {
   return (
     <div className="moviesCardsContainer">
       {movies.map((movie, index) => {
-        return <Movie movie={movie} key={movie.id} />;
+        return <Movie  movie={movie} key={movie.id} />;
       })}
     </div>
   );
