@@ -58,10 +58,6 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
 
-  const saveFilm = (id) => {
-    
-  }
-
   return (
     <authContext.Provider
       value={{
