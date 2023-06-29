@@ -9,7 +9,6 @@ import Login from "./components/shared/Login/Login";
 import Series from "./components/Home/Series/Series";
 import MovieDescription from "./components/Home/Movies/MovieDescription";
 import Nav from "./components/Nav/Nav";
-
 import Movies from "./components/Home/Movies/Movies";
 import SerieDescription from "./components/Home/Series/SerieDescription";
 
@@ -62,11 +61,7 @@ function App() {
             }
           />
 
-          <Route path="guardados" 
-          element={
-            <ProtectedRoute>
-
-            </ProtectedRoute>} />
+          <Route path="guardados" element={<ProtectedRoute></ProtectedRoute>} />
 
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />

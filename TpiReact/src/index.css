@@ -49,7 +49,7 @@
   /* NAV BAR */
 
   .nav {
-    @apply w-full sides-padding  h-11 text-white flex justify-between items-center xxs:h-12 md:h-14;
+    @apply w-full sides-padding  bg-darkBlueBG h-11 text-white flex justify-between items-center xxs:h-12 md:h-14 mb-10;
   }
   /* MOVIES CARD */
   .moviesCardsContainer {

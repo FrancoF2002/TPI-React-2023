@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
+
 const SerieDescription = () => {
   const params = useParams();
 
@@ -215,16 +216,11 @@ const SerieDescription = () => {
   useEffect(() => {
     //fetchMovie();
     //fetchVideo();
-    console.log(videoSerie);
+    
   }, []);
 
   if (!videoSerie) {
-    return (
-      <p className="text-white">
-        {" "}
-        <Loader />{" "}
-      </p>
-    );
+    return <Loader />;
   }
   return (
     <div className="text-white">
@@ -233,8 +229,18 @@ const SerieDescription = () => {
           <h2>{serie.original_name}</h2>
           <p>{serie.overview}</p>
           <p>{serie.first_air_date}</p>
-          <p>Creador: {serie.created_by.map((dateName) => { return<p>{dateName.name}</p>})}</p>
-          <p>Generos: {serie.genres.map((dateGenres) => { return<p>{dateGenres.name}</p>})}</p>
+          <p>
+            Creador:{" "}
+            {serie.created_by.map((dateName) => {
+              return <p>{dateName.name}</p>;
+            })}
+          </p>
+          <p>
+            Generos:{" "}
+            {serie.genres.map((dateGenres) => {
+              return <p>{dateGenres.name}</p>;
+            })}
+          </p>
         </div>
         <div className="p-5">
           <img
