@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useApi } from "../../../hooks/useApi";
 
 
 const SerieDescription = () => {
@@ -187,41 +188,27 @@ const SerieDescription = () => {
 
   const [id, setId] = useState(params.id);
 
-  const options = {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization:
-        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMGVhMTZjNjkyZDU2NWVkNTlmODk3NDBiOTQyMjQ1NyIsInN1YiI6IjY0NmJkZDYwNTRhMDk4MDE1NWUyZjRiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hkvWfebO8WW7zOhYZOXjr9DS37EyXjsOBGM7t-ebgNk",
-    },
-  };
-  const fetchMovie = () => {
-    fetch(
-      `https://api.themoviedb.org/3/tv/${id}?api_key=b0ea16c692d565ed59f89740b9422457`
-    )
-      .then((response) => response.json())
-      .then((response) => setSerie(response.results))
-      .catch((err) => console.error(err));
-  };
-  const fetchVideo = () => {
-    fetch(
-      `https://api.themoviedb.org/3/tv/${id}/videos?language=en-US`,
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => setVideoSerie(response.results))
-      .catch((err) => console.error(err));
-  };
+  
+ 
+   //Ya funcionando el custom Hook.
+/*
+   const {
+     loading: loadingVideo,
+     data: videoSerie,
+     error: errorVideo,
+   } = useApi(`https://api.themoviedb.org/3/tv/${id}/videos?language=en-US`);
+ const {
+     loading: loadingSerie,
+     data: serie,
+     error: errorSerie, 
+   } = useApi(`https://api.themoviedb.org/3/tv/${id}?language=en-US`);
 
-  useEffect(() => {
-    //fetchMovie();
-    //fetchVideo();
-    
-  }, []);
+*/
 
-  if (!videoSerie) {
+  if (!serie && !videoSerie) {
     return <Loader />;
   }
+
   return (
     <div className="text-white">
       <div className="flex">
