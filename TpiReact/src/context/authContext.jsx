@@ -8,7 +8,19 @@ import {
   signInWithPopup,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import {
+  getFirestore,
+  collection,
+  addDoc,
+  getDocs,
+  doc,
+  getDoc,
+  query,
+  where,
+  setDoc,
+  deleteDoc,
+} from "firebase/firestore";
+import { auth, db } from "../firebase/firebase";
 import { useState } from "react";
 
 //Creacion del contexto
@@ -29,7 +41,22 @@ export const AuthProvider = ({ children }) => {
 
   //funcion que registra el usuario en firebase
   const signUp = (email, password) =>
-    createUserWithEmailAndPassword(auth, email, password);
+    createUserWithEmailAndPassword(auth, email, password).then((result) => {
+      try {
+        const user = {
+          uid: result.user.uid,
+          profilePicture: "",
+          username: "Nuevo usuario",
+          email: result.user.email,
+          arrayFilms: [],
+        };
+        const usersRef = collection(db, "users");
+        setDoc(doc(usersRef, result.user.uid), user);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+      console.log(result.user.uid);
+    });
 
   //funcion que inicia sesion con auth de firebase
   const logIn = (email, password) =>
@@ -41,9 +68,23 @@ export const AuthProvider = ({ children }) => {
   //funcion para registarse con una cuenta de google
   const loginWithgoogle = () => {
     const googleProvider = new GoogleAuthProvider();
-    return signInWithPopup(auth, googleProvider);
+    signInWithPopup(auth, googleProvider).then((result) => {
+      try {
+        const user = {
+          uid: result.user.uid,
+          profilePicture: result.user.photoURL,
+          username: result.user.displayName,
+          email: result.user.email,
+          arrayFilms: [],
+        };
+        const usersRef = collection(db, "saved");
+        setDoc(doc(usersRef, user.uid), user);
+      } catch (e) {
+        console.error("Error adding document: ", e);
+      }
+      console.log(result.user.uid);
+    });
   };
-
 
   const resetPassword = (email) => sendPasswordResetEmail(auth, email);
 
@@ -57,10 +98,7 @@ export const AuthProvider = ({ children }) => {
     return () => unsubscribe();
   }, []);
 
-
-  const saveFilm = (id) => {
-    
-  }
+  const saveFilm = (id) => {};
 
   return (
     <authContext.Provider

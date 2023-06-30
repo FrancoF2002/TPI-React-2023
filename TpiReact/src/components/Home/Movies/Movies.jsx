@@ -389,6 +389,13 @@ const Movies = () => {
       .catch((err) => console.error(err));
   };
 
+
+  /*
+
+
+
+  const {loading,data,error } = useApi(`https://api.themoviedb.org/3/movie/${id}?language=en-US`);
+  */
   useEffect(() => {
     //fetchMovies();
   }, []);

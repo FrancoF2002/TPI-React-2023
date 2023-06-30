@@ -17,7 +17,7 @@
     @apply bg-navBarBG;
   }
   .sides-padding {
-    @apply px-3;
+    @apply px-3 sm:px-4 xl:px-5 2xl:px-6;
   }
   .inputs-rounded {
     @apply rounded-[5px] sm:rounded-[7px];
@@ -31,40 +31,46 @@
     @apply w-3 h-3;
   }
   .logoIcon {
-    @apply w-[32px] xxs:w-[36px] sm:w-10;
+    @apply w-[32px] xxs:w-[36px] sm:w-10 md:w-12 xl:w-16 ;
   }
   .movieIcon {
-    @apply w-4  hover:fill-white focus:fill-white xxs:w-5 sm:w-6;
+    @apply w-4  hover:fill-white focus:fill-white xxs:w-5 sm:w-6 md:w-[26px] xl:w-[30px];
   }
   .serieIcon {
-    @apply w-[18px]  hover:fill-white -translate-y-[1px]  focus:fill-white xxs:w-[22px] sm:w-[26px];
+    @apply w-[18px]  hover:fill-white -translate-y-[1px]  focus:fill-white xxs:w-[22px] sm:w-[26px] md:w-[28px] xl:w-[32px];
   }
   .bookmarkIcon {
-    @apply w-[16px] hover:fill-white focus:fill-white xxs:w-[20px] sm:w-[24px];
+    @apply w-[16px] hover:fill-white focus:fill-white xxs:w-[20px] sm:w-[24px] md:w-[26px] xl:w-[30px];
   }
   .nav__icon-container {
-    @apply grid place-content-center cursor-pointer;
+    @apply  cursor-pointer  flex items-center justify-center gap-2 lg:gap-5   text-xl fill-[#5A698F] text-[#5A698F] hover:text-white hover:fill-white;
   }
 
   /* NAV BAR */
 
   .nav {
-    @apply w-full sides-padding  bg-darkBlueBG h-11 text-white flex justify-between items-center xxs:h-12 md:h-14 mb-10;
+    @apply w-full sides-padding  bg-navBarBG h-16 leading-[64px] text-white flex justify-between items-center sm:h-20 sm:leading-[80px]  xl:h-24 xl:leading-[96px];
   }
+
+  .nav-text{
+    @apply hidden md:block
+  }
+
+
   /* MOVIES CARD */
   .moviesCardsContainer {
-    @apply grid grid-cols-2 gap-2 px-2   py-5 xxs:gap-3 xxs:px-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 xl:grid-cols-5 xl:gap-5 2xl:grid-cols-6 2xl:gap-6   drop-shadow-md shadow-white;
+    @apply grid grid-cols-2 gap-2 sides-padding   pb-10 xxs:gap-3 sm:grid-cols-3 sm:gap-4 md:grid-cols-4 xl:grid-cols-5 xl:gap-5 2xl:grid-cols-6 2xl:gap-6   drop-shadow-md shadow-white;
   }
 
   .movieCard {
-    @apply relative overflow-hidden;
+    @apply  overflow-hidden;
   }
   .movieTitle {
     @apply font-[400] text-[12px] text-white xxs:text-sm sm:text-[15px] md:text-base;
   }
 
   .movie__BookmarkContainer {
-    @apply absolute right-1  top-1 xxs:right-2 xxs:top-2 bg-black/40 rounded-full w-7 h-7 grid place-content-center cursor-pointer xxs:h-8 xxs:w-8;
+    @apply absolute right-1  top-1 xxs:right-2 xxs:top-2 bg-black/40 rounded-full w-7 h-7 grid place-content-center cursor-pointer xxs:h-8 xxs:w-8  fill-none hover:fill-white;
   }
 
   .movie__subInfo {

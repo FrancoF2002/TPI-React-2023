@@ -3,11 +3,32 @@ export const BookmarkIcon = () => {
     <div className="h-5 w-5 ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        fill="none"
+        
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="white"
-        className=" hover:fill-white w-full h-full"
+        className="  w-full h-full"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0111.186 0z"
+        />
+      </svg>
+    </div>
+  );
+};
+
+export const BookmarkIconFilled = () => {
+  return (
+    <div className="h-5 w-5 ">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        
+        viewBox="0 0 24 24"
+        strokeWidth={1.5}
+        stroke="white"
+        className="  w-full h-full"
       >
         <path
           strokeLinecap="round"
@@ -56,8 +77,8 @@ export const LogoIcon = () => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className="logoIcon"
-      viewBox="0 -960 960 960"
+      className="logoIcon "
+      viewBox="95 -960 960 960"
       fill="#FC4747"
     >
       <path d="m165.384-775 63.077 130.615h126.616L291-775h85.384l63.077 130.615h126.616L502-775h84.615l63.847 130.615h126.615L712.231-775h75.385q28.23 0 48.307 20.077T856-706.616v453.232q0 28.23-20.077 48.307T787.616-185H172.384q-28.23 0-48.307-20.077T104-253.384v-453.232q0-28.23 17.077-46.307T165.384-775Z" />
@@ -70,7 +91,7 @@ export const NavBookmarkIcon = () => {
     <svg
       viewBox="0 0 20 20"
       xmlns="http://www.w3.org/2000/svg"
-      fill="#5A698F"
+      
       className="bookmarkIcon "
 
     >
@@ -99,7 +120,7 @@ export const NavHomeIcon = () => {
 export const NavMoviesIcon = () => {
   return (
     <svg
-    fill="#5A698F"
+    
 
       className="movieIcon"
       viewBox="0 0 20 20"
@@ -114,7 +135,7 @@ export const NavMoviesIcon = () => {
 export const NavSeriesIcon = () => {
   return (
     <svg
-    fill="#5A698F"
+   
 
       className="serieIcon"
       viewBox="0 0 20 20"

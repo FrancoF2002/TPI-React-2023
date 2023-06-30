@@ -4,13 +4,14 @@ import Home from "./components/Home/Home";
 import Register from "./components/shared/Register/Register";
 import { AuthProvider } from "./context/authContext";
 import Landing from "./components/Landing/Landing";
-import ProtectedRoute from "./routes/protectedRoute";
+import ProtectedRoute from "./routes/ProtectedRoute";
 import Login from "./components/shared/Login/Login";
 import Series from "./components/Home/Series/Series";
 import MovieDescription from "./components/Home/Movies/MovieDescription";
 import Nav from "./components/Nav/Nav";
 import Movies from "./components/Home/Movies/Movies";
 import SerieDescription from "./components/Home/Series/SerieDescription";
+import Saved from "./components/Home/Saved/Saved";
 
 function App() {
   return (
@@ -51,7 +52,6 @@ function App() {
               </ProtectedRoute>
             }
           />
-
           <Route
             path="movie/:id"
             element={
@@ -60,11 +60,18 @@ function App() {
               </ProtectedRoute>
             }
           />
-
-          <Route path="guardados" element={<ProtectedRoute></ProtectedRoute>} />
-
+          <Route
+            path="saved"
+            element={
+              <ProtectedRoute>
+                <Saved />{" "}
+              </ProtectedRoute>
+            }
+          />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+
+          <Route path="*" element={<Home />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

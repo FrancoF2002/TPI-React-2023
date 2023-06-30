@@ -1,13 +1,14 @@
-
-
-import Nav from "../Nav/Nav";
 import CardMovie from "./Movies/Movies";
-
-
+import { useEffect } from "react";
+import { useAuth } from "../../context/authContext";
+import Loader from "../shared/Loader/Loader";
 const Home = () => {
-  
+  const { user, logOut, loading } = useAuth();
 
-  //if (loading) return <h1> Loading...</h1>;
+  if (loading) return <Loader />;
+  // useEffect(() => {
+  //   console.log(user);
+  // }, []);
 
   return (
     <div className="">

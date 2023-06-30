@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../../context/authContext";
 import { useNavigate, Link } from "react-router-dom";
+import { LogoIcon } from "../../../assets/icons/Icons";
 
 const Login = () => {
   const [error, setError] = useState("");
@@ -9,7 +10,6 @@ const Login = () => {
   const navigate = useNavigate();
 
   const handleChange = ({ target: { name, value } }) => {
-    console.log(name, value);
     setUser({ ...user, [name]: value });
   };
 
@@ -53,6 +53,8 @@ const Login = () => {
   };
   return (
     <div className=" sides-padding flex flex-col justify-center items-center h-screen ">
+       
+      
       <h2 className="form-title mb-5  text-customRed tracking-wider text-xl xxs:text-2xl ">  ¡Bienvenido otra vez!</h2>
       <h3 className="form-title">Ingresa con tu cuenta para continuar</h3>
       <form className="form" onSubmit={handleSubmit}>

@@ -5,7 +5,7 @@ import { useNavigate,Link } from "react-router-dom";
 const Register = () => {
   const [error, setError] = useState("");
   const [user, setUser] = useState({ email: "", password: "" });
-  const { signUp } = useAuth();
+  const { signUp,loginWithgoogle } = useAuth();
   const navigate = useNavigate();
 
   const handleChange = ({ target: { name, value } }) => {
@@ -30,6 +30,16 @@ const Register = () => {
     }
   };
 
+  //Funcion que se ejecuta cuando el usuario seleccion la opcion para iniciar sesion con Google.
+  const handleGoogleSignin = async () => {
+    try {
+      await loginWithgoogle();
+      navigate("/home");
+    } catch (error) {
+      setError(error.message);
+    }
+  };
+
   return (
     <div className=" sides-padding flex flex-col justify-center items-center h-screen ">
       {/* Si hay un error al registarse, muestra el mensaje aca, el fomulario siempre se sigue mostrando.
@@ -39,7 +49,7 @@ const Register = () => {
         ¡Bienvenido!
       </h4>
       <form className="form" onSubmit={handleSubmit}>
-        <div className="input-container">
+        {/* <div className="input-container">
           <label className="label" htmlFor="username">
             Nombre de usuario
           </label>
@@ -49,7 +59,7 @@ const Register = () => {
             //onChange={handleChange}
             className="input"
           />
-        </div>
+        </div> */}
 
         <div className="input-container">
           <label className="label" htmlFor="email">
@@ -77,6 +87,9 @@ const Register = () => {
         </div>
 
         <button className="btn-loggin">Registrarse</button>
+        <button className="btn-google" onClick={handleGoogleSignin}>
+          Continuar con Google
+        </button>
       </form>
       <div className="mt-10 text-white flex flex-col justify-center items-center">
         <span>¿Ya tienes una cuenta?</span>

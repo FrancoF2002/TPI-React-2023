@@ -20,7 +20,12 @@ const Nav = () => {
   const location = useLocation();
 
   // Mostrar la barra de navegación solo en ciertas rutas
-  if (location.pathname === "/") {
+  if (
+    location.pathname === "/" ||
+    location.pathname === "/login" ||
+    location.pathname === "/register" ||
+    location.pathname === "/choose-username"
+  ) {
     return null;
   }
 
@@ -32,23 +37,29 @@ const Nav = () => {
         
         <NavHomeIcon />
       </div> */}
-      <NavLink to={'/home'} className="nav__icon-container">
+      <NavLink to={"/home"} className="nav__icon-container">
         <LogoIcon />
       </NavLink>
 
-      <div className="flex gap-[18px] items-center justify-center xxs:gap-8 sm:gap-10 md:gap-14 lg:gap-20">
+      <div className="flex gap-[18px] items-center justify-center xxs:gap-8 sm:gap-10 md:gap-14 lg:gap-20 xl:gap-24">
         <NavLink to={"/movies"} className="nav__icon-container">
           <NavMoviesIcon />
+          <p className="nav-text">Peliculas</p>
         </NavLink>
         <NavLink to={"/series"} className="nav__icon-container">
           <NavSeriesIcon />
+          <p className="nav-text ">Series</p>
         </NavLink>
         <NavLink to={"/saved"} className="nav__icon-container">
           <NavBookmarkIcon />
+          <p className="nav-text ">Guardados</p>
         </NavLink>
       </div>
 
-      <div className="w-6 h-6 rounded-full bg-customRed  border-[1px] xxs:w-7 xxs:h-7 sm:h-8 sm:w-8"></div>
+      {/* <div className="w-6 h-6 rounded-full bg-customRed  border-[1px] xxs:w-7 xxs:h-7 sm:h-8 sm:w-8"></div>
+       */}
+
+      <div onClick={handleLogOut}>Logout {user?.displayName} </div>
     </div>
   );
 };
