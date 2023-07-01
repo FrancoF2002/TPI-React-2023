@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Serie from "./Serie";
 import Loader from "../../shared/Loader/Loader";
-import Filter from "../Filter/Filter";
+
 
 const Series = () => {
   const navigate = useNavigate();
@@ -339,41 +339,40 @@ const Series = () => {
 
 */
 
-//Prueba de filter
+  //Prueba de filter
 
-const [busquedaFilm, setBusquedaFilm] = useState();
+  // const [busquedaFilm, setBusquedaFilm] = useState();
 
-  const handlerChange = (e) => {
-    setBusquedaFilm(e.target.value);
-    FilterFilm(e.target.value);
-  };
+  //   const handlerChange = (e) => {
+  //     setBusquedaFilm(e.target.value);
+  //     FilterFilm(e.target.value);
+  //   };
 
-  const FilterFilm = (terminoDeBusqueda) => {
-    const resultadoBusqueda = series.filter((film) => {
-      if (film.name.toString().toLowerCase().includes(terminoDeBusqueda.toLowerCase())) {
-        return film;
-      }
-    });
-    setSeries(resultadoBusqueda)
-  };
-
+  //   const FilterFilm = (terminoDeBusqueda) => {
+  //     const resultadoBusqueda = series.filter((film) => {
+  //       if (film.name.toString().toLowerCase().includes(terminoDeBusqueda.toLowerCase())) {
+  //         return film;
+  //       }
+  //     });
+  //     setSeries(resultadoBusqueda)
+  //   };
 
   if (!series) {
     return <Loader />;
   }
   return (
     <div>
-        <div className="flex justify-center">
-           {/* <Filter series={series}/>  */}
+      {/* <div className="flex justify-center">
+          
            <input
             type="text"
             value={busquedaFilm}
             placeholder="Ingrese nombre del film"
             onChange={handlerChange}
             />
-        </div>
+        </div> */}
       <div className="moviesCardsContainer">
-        {series.map((serie, index) => {
+        {series.map((serie) => {
           return <Serie serie={serie} key={serie.id} />;
         })}
       </div>

@@ -59,7 +59,7 @@ const Nav = () => {
       {/* <div className="w-6 h-6 rounded-full bg-customRed  border-[1px] xxs:w-7 xxs:h-7 sm:h-8 sm:w-8"></div>
        */}
 
-      <div onClick={handleLogOut}>Logout {user?.displayName} </div>
+      <div className="md:text-lg xl:text-xl cursor-pointer hover:underline" onClick={handleLogOut}>Logout </div>
     </div>
   );
 };

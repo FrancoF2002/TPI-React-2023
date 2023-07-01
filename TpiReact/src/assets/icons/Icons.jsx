@@ -1,6 +1,6 @@
 export const BookmarkIcon = () => {
   return (
-    <div className="h-5 w-5 ">
+    <div className="h-5 w-5 lg:w-7 lg:h-7 ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         
@@ -21,7 +21,7 @@ export const BookmarkIcon = () => {
 
 export const BookmarkIconFilled = () => {
   return (
-    <div className="h-5 w-5 ">
+    <div className="h-5 w-5 lg:w-7 lg:h-7 ">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         

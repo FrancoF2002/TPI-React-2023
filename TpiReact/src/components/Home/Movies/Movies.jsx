@@ -366,39 +366,40 @@ const Movies = () => {
     },
   ]);
 
-  const fetchMovies = () => {
-    const options = {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization:
-          "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMGVhMTZjNjkyZDU2NWVkNTlmODk3NDBiOTQyMjQ1NyIsInN1YiI6IjY0NmJkZDYwNTRhMDk4MDE1NWUyZjRiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hkvWfebO8WW7zOhYZOXjr9DS37EyXjsOBGM7t-ebgNk",
-      },
-    };
+  //const fetchMovies = () => {
+  //   const options = {
+  //     method: "GET",
+  //     headers: {
+  //       accept: "application/json",
+  //       Authorization:
+  //         "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMGVhMTZjNjkyZDU2NWVkNTlmODk3NDBiOTQyMjQ1NyIsInN1YiI6IjY0NmJkZDYwNTRhMDk4MDE1NWUyZjRiOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.hkvWfebO8WW7zOhYZOXjr9DS37EyXjsOBGM7t-ebgNk",
+  //     },
+  //   };
 
-    fetch(
-      "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
-      options
-    )
-      .then((response) => response.json())
-      .then((response) => {
-        const { results } = response;
-        setMovies(results);
-        console.log(results);
-      })
-      .catch((err) => console.error(err));
-  };
-
-
-  /*
+  //   fetch(
+  //     "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
+  //     options
+  //   )
+  //     .then((response) => response.json())
+  //     .then((response) => {
+  //       const { results } = response;
+  //       setMovies(results);
+  //       console.log(results);
+  //     })
+  //     .catch((err) => console.error(err));
+  // };
 
 
 
-  const {loading,data,error } = useApi(`https://api.themoviedb.org/3/movie/${id}?language=en-US`);
-  */
-  useEffect(() => {
-    //fetchMovies();
-  }, []);
+
+
+    //Despues descomentar y cambiar en el map
+    
+  // const {
+  //   loading,
+  //   data,
+  //   error,
+  // } = useApi(`https://api.themoviedb.org/3/trending/movie/day?language=en-US`);
 
   const asd = {
     adult: false,
@@ -418,15 +419,14 @@ const Movies = () => {
     vote_count: 1465,
   };
 
-
-  if(!movies){
-    return (<Loader/>)
+  if (!movies) {
+    return <Loader />;
   }
 
   return (
     <div className="moviesCardsContainer">
       {movies.map((movie, index) => {
-        return <Movie  movie={movie} key={movie.id} />;
+        return <Movie movie={movie} key={movie.id} />;
       })}
     </div>
   );

@@ -1,24 +1,23 @@
 import React, { useEffect, useState } from "react";
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc, onSnapshot } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import { useAuth } from "../../../context/authContext";
 import SavedCard from "./SavedCard";
 import Loader from "../../shared/Loader/Loader";
 const Saved = () => {
-  const { user, logOut, loading } = useAuth();
+  const { user } = useAuth();
 
   const [savedFilms, setSavedFilms] = useState();
   async function getSaved() {
-    const docRef = doc(db, "users", user.uid);
-    const docSnap = await getDoc(docRef);
+    onSnapshot(doc(db, "users", user.uid), (doc) => {
+      const docSnap = doc.data();
 
-    if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
-      setSavedFilms(docSnap.data().arrayFilms);
-    } else {
-      // docSnap.data() will be undefined in this case
-      console.log("No such document!");
-    }
+      if (docSnap) {
+        setSavedFilms(docSnap.arrayFilms);
+      } else {
+        console.log("No such document!");
+      }
+    });
   }
 
   useEffect(() => {
@@ -26,11 +25,14 @@ const Saved = () => {
   }, []);
 
   if (!savedFilms) {
-    return <Loader />;
+    return <div className="text-white">Sin cosas guardadas</div>;
   }
 
   return (
     <div>
+      <h2 className=" sides-padding text-white text-xl mb-2 sm:text-2xl md:text-3xl">
+        Guardados
+      </h2>
       <div className="moviesCardsContainer">
         {savedFilms.map((film) => {
           return <SavedCard film={film} key={film.movieId} />;

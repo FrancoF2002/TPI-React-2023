@@ -21,7 +21,6 @@ export function useApi(url) {
       .then((response) => response.json())
       .then((response) => {
         setData(response);
-        
       })
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));

@@ -1,175 +1,121 @@
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Loader from "../../shared/Loader/Loader";
 
 import { useApi } from "../../../hooks/useApi";
 
 const MovieDescription = () => {
   const params = useParams();
-  const [id, setId] = useState(params.id);
+  
 
-  const [dataVideo, setDataVideo] = useState({
-    id: 550,
-    results: [
-      {
-        iso_639_1: "en",
-        iso_3166_1: "US",
-        name: "Fight Club (1999) Trailer - Starring Brad Pitt, Edward Norton, Helena Bonham Carter",
-        key: "O-b2VfmmbyA",
-        site: "YouTube",
-        size: 720,
-        type: "Trailer",
-        official: false,
-        published_at: "2016-03-05T02:03:14.000Z",
-        id: "639d5326be6d88007f170f44",
-      },
-      {
-        iso_639_1: "en",
-        iso_3166_1: "US",
-        name: "#TBT Trailer",
-        key: "BdJKm16Co6M",
-        site: "YouTube",
-        size: 1080,
-        type: "Trailer",
-        official: true,
-        published_at: "2014-10-02T19:20:22.000Z",
-        id: "5c9294240e0a267cd516835f",
-      },
-    ],
-  });
+  // const [dataVideo, setDataVideo] = useState();
 
-  const [dataMovie, setDataMovie] = useState({
-    adult: false,
-    backdrop_path: "/hZkgoQYus5vegHoetLkCJzb17zJ.jpg",
-    belongs_to_collection: null,
-    budget: 63000000,
-    genres: [
-      {
-        id: 18,
-        name: "Drama",
-      },
-      {
-        id: 53,
-        name: "Thriller",
-      },
-      {
-        id: 35,
-        name: "Comedy",
-      },
-    ],
-    homepage: "http://www.foxmovies.com/movies/fight-club",
-    id: 550,
-    imdb_id: "tt0137523",
-    original_language: "en",
-    original_title: "Fight Club",
-    overview:
-      'A ticking-time-bomb insomniac and a slippery soap salesman channel primal male aggression into a shocking new form of therapy. Their concept catches on, with underground "fight clubs" forming in every town, until an eccentric gets in the way and ignites an out-of-control spiral toward oblivion.',
-    popularity: 61.416,
-    poster_path: "/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg",
-    production_companies: [
-      {
-        id: 508,
-        logo_path: "/7cxRWzi4LsVm4Utfpr1hfARNurT.png",
-        name: "Regency Enterprises",
-        origin_country: "US",
-      },
-      {
-        id: 711,
-        logo_path: "/tEiIH5QesdheJmDAqQwvtN60727.png",
-        name: "Fox 2000 Pictures",
-        origin_country: "US",
-      },
-      {
-        id: 20555,
-        logo_path: "/hD8yEGUBlHOcfHYbujp71vD8gZp.png",
-        name: "Taurus Film",
-        origin_country: "DE",
-      },
-      {
-        id: 54051,
-        logo_path: null,
-        name: "Atman Entertainment",
-        origin_country: "",
-      },
-      {
-        id: 54052,
-        logo_path: null,
-        name: "Knickerbocker Films",
-        origin_country: "US",
-      },
-      {
-        id: 4700,
-        logo_path: "/A32wmjrs9Psf4zw0uaixF0GXfxq.png",
-        name: "The Linson Company",
-        origin_country: "US",
-      },
-      {
-        id: 25,
-        logo_path: "/qZCc1lty5FzX30aOCVRBLzaVmcp.png",
-        name: "20th Century Fox",
-        origin_country: "US",
-      },
-    ],
-    production_countries: [
-      {
-        iso_3166_1: "US",
-        name: "United States of America",
-      },
-    ],
-    release_date: "1999-10-15",
-    revenue: 100853753,
-    runtime: 139,
-    spoken_languages: [
-      {
-        english_name: "English",
-        iso_639_1: "en",
-        name: "English",
-      },
-    ],
-    status: "Released",
-    tagline: "Mischief. Mayhem. Soap.",
-    title: "Fight Club",
-    video: false,
-    vote_average: 8.433,
-    vote_count: 26280,
-  });
-
-  //Ya funcionando el custom Hook.
-  /*
-   const {
-     loading: loadingVideo,
-     data: dataVideo,
-     error: errorVideo,
-   } = useApi(`https://api.themoviedb.org/3/movie/${id}/videos?language=en-US`);
+  // const [dataMovie?, setdataMovie?] = useState();
+  
+  //  const {
+  //    loading: loadingVideo,
+  //    data: dataVideo,
+  //    error: errorVideo,
+  //  } = useApi(`https://api.themoviedb.org/3/movie/${params.id}/videos?language=en-US`);
  const {
      loading: loadingMovie,
      data: dataMovie,
      error: errorMovie, 
-   } = useApi(`https://api.themoviedb.org/3/movie/${id}?language=en-US`);
+   } = useApi(`https://api.themoviedb.org/3/movie/${params.id}?language=en-US`);
 
-*/
+  
 
-  if (!dataMovie && !dataVideo) {
+  if (!dataMovie ) {
     return <Loader />;
   }
   return (
-    <div className="text-white sides-padding flex flex-col   gap-3 w-full">
-      {dataVideo.results.map((trailer, i) => {
-        if (trailer.type === "Trailer" && i === 0) {
+    <div className=" sides-padding max-w-6xl mx-auto lg:mt-10">
+      <div className="flex w-full justify-between items-center text-white tracking-wider mb-2">
+        <h3 className="form-title text-start m-0 sm:text-2xl md:text-3xl lg:text-4xl ">
+          {dataMovie?.original_title}
+        </h3>
+        <span className="form-title text-end m-0 font-medium ">
+          {Math.round(dataMovie?.vote_average * 10) / 10}/10{" "}
+        </span>
+      </div>
+
+      <div>
+        <img
+          className="w-full h-full  rounded-md"
+          src={"http://image.tmdb.org/t/p/w500/" + dataMovie?.backdrop_path}
+          alt=""
+        />
+      </div>
+      <div className="flex  text-sm items-center justify-start gap-1 mt-1 xxs:text-base sm:text-lg">
+        {dataMovie?.genres.map((dateGenres, index) => {
+          return (
+            <div key={dateGenres.name} className="">
+              <p className=" text-white opacity-50 font-medium  ">
+                {dateGenres.name}
+                {index !== dataMovie?.genres.length - 1 ? "," : ""}
+              </p>
+            </div>
+          );
+        })}
+        <p className="w-full text-end  text-white opacity-80 font-medium ">
+          {dataMovie?.release_date.slice(0, 4)}
+        </p>
+      </div>
+      <div className="text-white mt-2">
+        <h4 className="description-subTitle mb-1">Description:</h4>
+        <p className="text-sm xxs:text-base lg:text-lg">{dataMovie?.overview}</p>
+      </div>
+
+      <h5 className="description-subTitle mt-5  ">Aditional Information:</h5>
+      <div className="text-white flex flex-col w-full  ">
+        <div className="description-info-container">
+          {" "}
+          <span>Status:</span>{" "}
+          <span className="opacity-70">{dataMovie?.status}</span>
+        </div>
+       
+        <div className="description-info-container">
+          {" "}
+          <span>Duration:</span>{" "}
+          <span className="opacity-70">{dataMovie?.runtime}min</span>
+        </div>
+        
+        <div className="description-info-container">
+         <span> Created by:{" "}</span>
+         <div className="flex flex-col">
+         {dataMovie?.production_companies.map((creator) => {
+            return (
+              <span className="opacity-70" key={creator.id}>
+                {creator.name}
+                
+              </span>
+            );
+          })}
+         </div>
+          
+        </div>
+      </div>
+
+      <h5 className="description-subTitle mt-5 ">Trailer:</h5>
+
+      {/* {dataVideo?.results.map((trailer, i) => {
+        if (trailer.type === "Trailer" && i == 0) {
           return (
             <div
-              className="flex flex-col items-center justify-center"
+              className="flex flex-col items-start justify-center mb-3"
               key={trailer.id}
             >
+              <p className="text-white text-start mb-2">{trailer.name}</p>
+
               <iframe
-                className="aspect-video w-full rounded-lg max-w-2xl"
+                className="aspect-video w-full rounded-md"
                 src={`https://www.youtube.com/embed/${trailer.key}`}
                 allowFullScreen
               />
             </div>
           );
         }
-      })}
+      })} */}
     </div>
   );
 };

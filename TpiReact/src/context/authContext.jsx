@@ -8,18 +8,7 @@ import {
   signInWithPopup,
   sendPasswordResetEmail,
 } from "firebase/auth";
-import {
-  getFirestore,
-  collection,
-  addDoc,
-  getDocs,
-  doc,
-  getDoc,
-  query,
-  where,
-  setDoc,
-  deleteDoc,
-} from "firebase/firestore";
+import { collection, doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../firebase/firebase";
 import { useState } from "react";
 
@@ -45,17 +34,13 @@ export const AuthProvider = ({ children }) => {
       try {
         const user = {
           uid: result.user.uid,
-          profilePicture: "",
-          username: "Nuevo usuario",
-          email: result.user.email,
           arrayFilms: [],
         };
         const usersRef = collection(db, "users");
         setDoc(doc(usersRef, result.user.uid), user);
       } catch (e) {
-        console.error("Error adding document: ", e);
+        console.error("Error al iniciar con correo y pass ", e);
       }
-      console.log(result.user.uid);
     });
 
   //funcion que inicia sesion con auth de firebase
@@ -72,17 +57,14 @@ export const AuthProvider = ({ children }) => {
       try {
         const user = {
           uid: result.user.uid,
-          profilePicture: result.user.photoURL,
-          username: result.user.displayName,
-          email: result.user.email,
           arrayFilms: [],
         };
-        const usersRef = collection(db, "saved");
+      
+        const usersRef = collection(db, "users");
         setDoc(doc(usersRef, user.uid), user);
       } catch (e) {
-        console.error("Error adding document: ", e);
+        console.error("Error al iniciar con google ", e);
       }
-      console.log(result.user.uid);
     });
   };
 
@@ -97,9 +79,6 @@ export const AuthProvider = ({ children }) => {
 
     return () => unsubscribe();
   }, []);
-
-
-  const saveFilm = (id) => {};
 
   return (
     <authContext.Provider
