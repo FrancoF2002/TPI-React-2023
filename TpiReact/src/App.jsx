@@ -12,6 +12,7 @@ import Nav from "./components/Nav/Nav";
 import Movies from "./components/Home/Movies/Movies";
 import SerieDescription from "./components/Home/Series/SerieDescription";
 import Saved from "./components/Home/Saved/Saved";
+import NotFound from "./components/shared/NotFound";
 
 function App() {
   return (
@@ -71,7 +72,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
 
-          <Route path="*" element={<Home />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </AuthProvider>

@@ -25,7 +25,7 @@ const Saved = () => {
   }, []);
 
   if (!savedFilms) {
-    return <div className="text-white">Sin cosas guardadas</div>;
+    return <Loader />;
   }
 
   return (
@@ -34,9 +34,13 @@ const Saved = () => {
         Guardados
       </h2>
       <div className="moviesCardsContainer">
-        {savedFilms.map((film) => {
-          return <SavedCard film={film} key={film.movieId} />;
-        })}
+        {savedFilms.lenth > 0 ? (
+          savedFilms.map((film) => {
+            return <SavedCard film={film} key={film.movieId} />;
+          })
+        ) : (
+          <div>asd</div>
+        )}
       </div>
     </div>
   );
