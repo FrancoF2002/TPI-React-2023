@@ -1,31 +1,17 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import Loader from "../../shared/Loader/Loader";
-
 import { useApi } from "../../../hooks/useApi";
 
 const MovieDescription = () => {
   const params = useParams();
-  
 
-  // const [dataVideo, setDataVideo] = useState();
+  const {
+    loading: loadingMovie,
+    data: dataMovie,
+    error: errorMovie,
+  } = useApi(`https://api.themoviedb.org/3/movie/${params.id}?language=en-US`);
 
-  // const [dataMovie?, setdataMovie?] = useState();
-  
-  //  const {
-  //    loading: loadingVideo,
-  //    data: dataVideo,
-  //    error: errorVideo,
-  //  } = useApi(`https://api.themoviedb.org/3/movie/${params.id}/videos?language=en-US`);
- const {
-     loading: loadingMovie,
-     data: dataMovie,
-     error: errorMovie, 
-   } = useApi(`https://api.themoviedb.org/3/movie/${params.id}?language=en-US`);
-
-  
-
-  if (!dataMovie ) {
+  if (!dataMovie) {
     return <Loader />;
   }
   return (
@@ -63,7 +49,9 @@ const MovieDescription = () => {
       </div>
       <div className="text-white mt-2">
         <h4 className="description-subTitle mb-1">Description:</h4>
-        <p className="text-sm xxs:text-base lg:text-lg">{dataMovie?.overview}</p>
+        <p className="text-sm xxs:text-base lg:text-lg">
+          {dataMovie?.overview}
+        </p>
       </div>
 
       <h5 className="description-subTitle mt-5  ">Aditional Information:</h5>
@@ -73,49 +61,26 @@ const MovieDescription = () => {
           <span>Status:</span>{" "}
           <span className="opacity-70">{dataMovie?.status}</span>
         </div>
-       
+
         <div className="description-info-container">
           {" "}
           <span>Duration:</span>{" "}
           <span className="opacity-70">{dataMovie?.runtime}min</span>
         </div>
-        
+
         <div className="description-info-container">
-         <span> Created by:{" "}</span>
-         <div className="flex flex-col">
-         {dataMovie?.production_companies.map((creator) => {
-            return (
-              <span className="opacity-70" key={creator.id}>
-                {creator.name}
-                
-              </span>
-            );
-          })}
-         </div>
-          
+          <span> Created by: </span>
+          <div className="flex flex-col pb-10">
+            {dataMovie?.production_companies.map((creator) => {
+              return (
+                <span className="opacity-70" key={creator.id}>
+                  {creator.name}
+                </span>
+              );
+            })}
+          </div>
         </div>
       </div>
-
-      <h5 className="description-subTitle mt-5 ">Trailer:</h5>
-
-      {/* {dataVideo?.results.map((trailer, i) => {
-        if (trailer.type === "Trailer" && i == 0) {
-          return (
-            <div
-              className="flex flex-col items-start justify-center mb-3"
-              key={trailer.id}
-            >
-              <p className="text-white text-start mb-2">{trailer.name}</p>
-
-              <iframe
-                className="aspect-video w-full rounded-md"
-                src={`https://www.youtube.com/embed/${trailer.key}`}
-                allowFullScreen
-              />
-            </div>
-          );
-        }
-      })} */}
     </div>
   );
 };

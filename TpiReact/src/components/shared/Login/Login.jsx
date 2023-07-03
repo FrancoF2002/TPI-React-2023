@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useAuth } from "../../../context/authContext";
 import { useNavigate, Link } from "react-router-dom";
-import { LogoIcon } from "../../../assets/icons/Icons";
 
 const Login = () => {
   const [error, setError] = useState("");

@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import { useApi } from "../../../hooks/useApi";
 import Loader from "../../shared/Loader/Loader";
 const SerieDescription = () => {
   const params = useParams();
-  
 
-  // const {
-  //   loading: loadingVideo,
-  //   data: videoSerie,
-  //   error: errorVideo,
-  // } = useApi(`https://api.themoviedb.org/3/tv/${params.id}/videos?language=en-US`);
   const {
     loading: loadingSerie,
     data: serie,
@@ -84,7 +78,7 @@ const SerieDescription = () => {
           <span>Last episode:</span>{" "}
           <span className="opacity-70">{serie?.last_air_date.slice(0, 4)}</span>
         </div>
-        <div className="description-info-container">
+        <div className="description-info-container pb-10">
           Created by:{" "}
           {serie?.created_by.map((creator, index) => {
             return (
@@ -97,26 +91,6 @@ const SerieDescription = () => {
         </div>
       </div>
 
-      <h5 className="description-subTitle mt-5 ">Trailer:</h5>
-
-      {/* {videoSerie?.results.reverse().map((trailer, i) => {
-        if (trailer.type === "Trailer" && i == 0) {
-          return (
-            <div
-              className="flex flex-col items-start justify-center mb-3"
-              key={trailer.id}
-            >
-              <p className="text-white text-start mb-2">{trailer.name}</p>
-
-              <iframe
-                className="aspect-video w-full rounded-md"
-                src={`https://www.youtube.com/embed/${trailer.key}`}
-                allowFullScreen
-              />
-            </div>
-          );
-        }
-      })} */}
     </div>
   );
 };

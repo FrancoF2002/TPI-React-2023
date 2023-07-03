@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { doc, getDoc, onSnapshot } from "firebase/firestore";
+import { doc,onSnapshot } from "firebase/firestore";
 import { db } from "../../../firebase/firebase";
 import { useAuth } from "../../../context/authContext";
 import SavedCard from "./SavedCard";
 import Loader from "../../shared/Loader/Loader";
+
 const Saved = () => {
   const { user } = useAuth();
 
@@ -29,18 +30,14 @@ const Saved = () => {
   }
 
   return (
-    <div>
+    <div className="">
       <h2 className=" sides-padding text-white text-xl mb-2 sm:text-2xl md:text-3xl">
         Guardados
       </h2>
-      <div className="moviesCardsContainer">
-        {savedFilms.lenth > 0 ? (
-          savedFilms.map((film) => {
-            return <SavedCard film={film} key={film.movieId} />;
-          })
-        ) : (
-          <div>asd</div>
-        )}
+      <div className="moviesCardsContainer ">
+        {savedFilms.map((film) => {
+          return <SavedCard film={film} key={film.movieId} />;
+        })}
       </div>
     </div>
   );

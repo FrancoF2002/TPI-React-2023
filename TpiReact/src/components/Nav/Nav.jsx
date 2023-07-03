@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 import {
   LogoIcon,
   NavBookmarkIcon,
-  NavHomeIcon,
   NavMoviesIcon,
   NavSeriesIcon,
 } from "../../assets/icons/Icons";
@@ -31,12 +30,6 @@ const Nav = () => {
 
   return (
     <div className="nav">
-      {/* <button onClick={handleLogOut}>Log out</button> */}
-
-      {/* <div className="navIcon">
-        
-        <NavHomeIcon />
-      </div> */}
       <NavLink to={"/home"} className="nav__icon-container">
         <LogoIcon />
       </NavLink>
@@ -56,10 +49,9 @@ const Nav = () => {
         </NavLink>
       </div>
 
-      {/* <div className="w-6 h-6 rounded-full bg-customRed  border-[1px] xxs:w-7 xxs:h-7 sm:h-8 sm:w-8"></div>
-       */}
-
-      <div className="md:text-lg xl:text-xl" onClick={handleLogOut}>Logout </div>
+      <div className="md:text-lg xl:text-xl" onClick={handleLogOut}>
+        Logout{" "}
+      </div>
     </div>
   );
 };

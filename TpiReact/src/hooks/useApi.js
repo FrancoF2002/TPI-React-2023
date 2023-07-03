@@ -8,7 +8,7 @@ export function useApi(url) {
   const API_KEY = import.meta.env.VITE_API_MOVIES_AUTH_TOKEN;
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     const options = {
       method: "GET",
       headers: {
@@ -22,7 +22,7 @@ export function useApi(url) {
       .then((response) => {
         setData(response);
       })
-      .catch((err) => console.error(err))
+      .catch((err) => setError(err))
       .finally(() => setLoading(false));
   }, []);
 
